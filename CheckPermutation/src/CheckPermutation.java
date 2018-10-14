@@ -25,6 +25,13 @@ public class CheckPermutation {
 			int bitValOne = one.charAt(i) - 'a'; //get bit index for strings
 			int bitValTwo = two.charAt(i) - 'a'; //a-a = 0, z-a = 26
 			
+			//if there are capital letters, perform this step to the bit index
+			//so we don't end up left shifting by negative numbers
+			if(bitValOne < 0)
+				bitValOne += 32;
+			if(bitValTwo < 0)
+				bitValTwo += 32;
+			
 			//if we come across a repetition of a letter, set its bit vector index to 0.
 			//Both strings have to have the same # of each letter
 			//to be permutations of each other so we can do that
