@@ -6,7 +6,8 @@
 public class RotateMatrix {
 	public static void main(String[] args){
 		int[][] matrix = {{1,1,1,1},{0,0,0,0},{1,1,1,1},{0,0,0,0}};
-		for(int[] x : matrix){
+		int[][] result = rotate(matrix);
+		for(int[] x : result){
 			for(int y : x){
 				System.out.print(y + " ");
 			}
@@ -23,5 +24,9 @@ public class RotateMatrix {
 			}
 		}
 		return result;
+	}
+	
+	public static void staticRotate(int[][] matrix){
+		
 	}
 }
