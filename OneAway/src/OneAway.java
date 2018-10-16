@@ -7,7 +7,7 @@
 
 public class OneAway {
 	public static void main(String[] args) {
-		String[][] wordPairs = {{"pale", "ple"}, {"pales","pale"}, {"pale","bale"}, {"pale","bake"}};
+		String[][] wordPairs = {{"paless", "ple"}, {"pales","pale"}, {"pale","bale"}, {"pale","bake"}};
 		for(String[] pair : wordPairs){
 			String first = pair[0];
 			String second = pair[1];
@@ -23,6 +23,8 @@ public class OneAway {
 	public static boolean checkEdit(String word1, String word2){
 		if(word1.equals(word2)) //zero edits
 			return true;
+		else if(Math.abs(word1.length()-word2.length()) > 1) //auto reject when length of words differ by more than 1
+			return false;
 		else{
 			int bitOne = 0;
 			int bitTwo = 0;
