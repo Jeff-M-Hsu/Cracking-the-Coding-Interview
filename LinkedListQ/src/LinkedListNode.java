@@ -42,6 +42,16 @@ public class LinkedListNode {
 		end.prev = n;
 	}
 	
+	public void appendSingle(int d){
+		LinkedListNode end = new LinkedListNode(d);
+		LinkedListNode n = this;
+		while(n.next != null){
+			n = n.next;
+			
+		}
+		n.next = end;
+	}
+	
 	public LinkedListNode clone(){
 		LinkedListNode next2 = null;
 		if(next != null){
