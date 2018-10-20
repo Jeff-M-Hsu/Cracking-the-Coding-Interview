@@ -5,8 +5,8 @@ public class LinkedListNode {
 	
 	public LinkedListNode(int d, LinkedListNode n, LinkedListNode p){
 		data = d;
-		prev = p;
 		next = n;
+		prev = p;
 	}
 	
 	public LinkedListNode(int d){
