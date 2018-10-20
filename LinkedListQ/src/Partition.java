@@ -13,13 +13,13 @@ public class Partition {
 		node.appendSingle(10);
 		node.appendSingle(2);
 		node.appendSingle(1);
-		partition(node, 5);
+		node = wtf(node, 5);
 		while(node != null){
 			System.out.print(node.data + "\t");
 			node = node.next;
 		}
 	}
-	
+
 	//O(n^2) solution with O(1) space, move all elements greater or equal to x to a separate list
 	//then combine the two at the end
 	public static void partition(LinkedListNode node, int x){
@@ -35,4 +35,25 @@ public class Partition {
 		}
 		node.next = right.next;
 	}
+
+	//O(
+	public static LinkedListNode wtf(LinkedListNode node, int x){
+		LinkedListNode head = node;
+		LinkedListNode tail = head;
+		while(node!=null){
+			LinkedListNode next = node.next;
+			if(node.data < x){
+				node.next = head;
+				head = node;
+			}
+			else{
+				tail.next = node;
+				tail = node;
+			}
+			node = next;
+		}
+		tail.next = null;
+		return head;
+	}
 }
+
