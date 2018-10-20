@@ -21,23 +21,20 @@ public class ReturnKthToLast {
 		System.out.print(result.data);
 	}
 	
-	//O(n) solution by iterating through the list and counting the nodes
-	//then finding the kth to last via count - k, and I believe uses O(1) space?
+	//O(n) solution by using a forward pointer that started at the kth node
+	//and iterated through the list. When the forward pointer reaches the end
+	//the normal pointer is at the kth to last element
+	//Note: solution from previous commit was more complicated and was technically O(2n-k) instead of the O(n) that this is
 	public static LinkedListNode countK(LinkedListNode input, int k){
-		int count = 0;
-		int index = 0;
-		LinkedListNode n = input;
-		while(n != null){
-			count++;
-			n = n.next;
+		if(k < 1) return new LinkedListNode();
+		LinkedListNode forwardPointer = input;
+		for(int i = 0; i < k; i++){
+			if(forwardPointer == null) return new LinkedListNode();
+			forwardPointer = forwardPointer.next;
 		}
-		index = count-k;
-		if(index < 0)
-			return new LinkedListNode();
-		else{
-			for(int i = 0; i < index; i++){
-				input = input.next;
-			}
+		while(forwardPointer != null){
+			input = input.next;
+			forwardPointer = forwardPointer.next;
 		}
 		return input;
 	}
