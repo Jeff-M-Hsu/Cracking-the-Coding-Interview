@@ -19,30 +19,24 @@ public class RemoveDups {
 		}
 		System.out.println();
 		removeDups(node);
-		LinkedListNode changed = node;
-		while(changed != null){
-			System.out.print(changed.data + "\t");
-			changed = changed.next;
+		while(node != null){
+			System.out.print(node.data + "\t");
+			node = node.next;
 		}
 	}
 
 	//O(n^2) solution where n is the number of nodes in the linked list
 	//uses O(1) space (single LinkedListNode object)
 	public static void removeDups(LinkedListNode node){
-		LinkedListNode p1 = node;
-		while(p1.next != null){
-			LinkedListNode p2 = p1;
+		while(node.next != null){
+			LinkedListNode p2 = node;
 			while(p2.next != null){
-				if(p1.data == p2.next.data){//if p2.next is a duplicate, assign p2.next.next to it instead to delete the node
+				if(node.data == p2.next.data){//if p2.next is a duplicate, assign p2.next.next to it instead to delete the node
 					p2.next = p2.next.next;
 				}
 				else p2 = p2.next;
 			}
-			p1 = p1.next;
+			node = node.next;
 		}
-		while(p1.prev != null){ //go back to the beginning of the list
-			p1 = p1.prev;
-		}
-		node = p1;
 	}
 }
