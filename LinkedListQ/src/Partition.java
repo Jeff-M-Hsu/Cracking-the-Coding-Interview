@@ -36,7 +36,8 @@ public class Partition {
 		node.next = right.next;
 	}
 
-	//O(
+	//O(n) solution from the answer key, understanding of this solution is very dependent on
+	//ability to visualize how things stored in memory are referenced
 	public static LinkedListNode wtf(LinkedListNode node, int x){
 		LinkedListNode head = node;
 		LinkedListNode tail = head;
