@@ -61,4 +61,14 @@ public class LinkedListNode {
 		LinkedListNode head2 = new LinkedListNode(data, next2, null);
 		return head2;
 	}
+	
+	public int length(){
+		int count = 0;
+		LinkedListNode n = this;
+		while(n != null){
+			count++;
+			n = n.next;
+		}
+		return count;
+	}
 }
