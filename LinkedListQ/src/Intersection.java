@@ -22,6 +22,8 @@ public class Intersection {
 		else System.out.println("Lists do not intersect");
 	}
 	
+	//O(n^2) brute force solution, checks all of list2 for each node in list1.
+	//The most obvious but probably one of the worst performing solutions
 	public static LinkedListNode intersect(LinkedListNode list1, LinkedListNode list2){
 		LinkedListNode result = null;
 		LinkedListNode head2 = list2;
